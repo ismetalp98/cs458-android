@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ismet/AndroidStudioProjects/cs458/app/src/main/res/layout/activity_main.xml" value="0.5359375" />
+        <entry key="..\:/Users/ismet/Documents/cs458-android/app/src/main/res/layout/activity_main.xml" value="0.55" />
+        <entry key="..\:/Users/ismet/Documents/cs458-android/app/src/main/res/layout/activity_second_page.xml" value="0.55" />
+        <entry key="..\:/Users/ismet/Documents/cs458-android/app/src/main/res/layout/second.xml" value="0.55" />
+        <entry key="..\:/Users/ismet/Documents/cs458-android/app/src/main/res/layout/second_page.xml" value="0.55" />
       </map>
     </option>
   </component>
