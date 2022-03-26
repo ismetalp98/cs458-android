@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -43,7 +44,10 @@ public class SecondPage extends AppCompatActivity {
         gender.setText("Gender is: "+ intent.getStringExtra("gender"));
         vtype.setText("Vaccination Type is: "+ intent.getStringExtra("vtype"));
         ase.setText("Side Effects are: "+ intent.getStringExtra("ase"));
-        otherVaccine.setText("VT is: "+ intent.getStringExtra("otherVaccine"));
+        if(intent.getStringExtra("otherVaccine").length() > 0)
+            otherVaccine.setText("VT is: "+ intent.getStringExtra("otherVaccine"));
+        else
+            otherVaccine.setVisibility(View.GONE);
         checkBox.setText("AS is: "+ intent.getStringExtra("checkBox"));
 
 
