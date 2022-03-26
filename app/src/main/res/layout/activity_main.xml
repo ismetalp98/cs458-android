@@ -6,19 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
-        app:layout_constraintVertical_bias="1.0" />
-
     <LinearLayout
         android:id="@+id/scrollView2"
         android:layout_width="411dp"
@@ -192,19 +179,18 @@
                 android:text="Any positive case and symptoms after 3rd vaccination?" />
 
             <RadioGroup
+                android:id="@+id/groupPositive"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.30"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioYes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Yes" />
 
                 <RadioButton
-                    android:id="@+id/radioNo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="No" />
@@ -213,5 +199,18 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
