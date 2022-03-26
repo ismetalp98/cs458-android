@@ -22,7 +22,7 @@
     <LinearLayout
         android:id="@+id/scrollView2"
         android:layout_width="411dp"
-        android:layout_height="504dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +38,12 @@
             android:hint="Name-Surname"
             android:inputType="textPersonName"
             android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Birth Date"
+            android:layout_marginTop="30px"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -70,31 +76,63 @@
         </LinearLayout>
 
 
-            <EditText
-                android:id="@+id/city"
-                android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:ems="10"
+            android:hint="City"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
+
+        <RadioGroup
+            android:id="@+id/groupGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30px"
-                android:ems="10"
-                android:hint="City"
-                android:inputType="textPersonName"
-                android:minHeight="48dp" />
+                android:text="Male"
+                android:layout_weight="0.33"/>
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:layout_weight="0.33"/>
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Other"
+                android:layout_weight="0.33"/>
+        </RadioGroup>
 
-        <Spinner
-            android:id="@+id/gender"
+        <RadioGroup
+            android:id="@+id/groupVaccination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30px"
-            android:minHeight="48dp"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:weightSum="1"
+            android:orientation="horizontal">
 
-        <Spinner
-            android:id="@+id/vtype"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30px"
-            android:minHeight="48dp"
-            tools:ignore="SpeakableTextPresentCheck" />
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Turcovac"
+                android:layout_weight="0.33"/>
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Biontech"
+                android:layout_weight="0.33"/>
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Other"
+                android:layout_weight="0.33"/>
+        </RadioGroup>
 
         <EditText
             android:id="@+id/otherVaccine"
@@ -107,33 +145,71 @@
             android:inputType="textPersonName"
             android:minHeight="48dp" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Do you had any side effect?"
+                android:layout_weight="1"/>
+
+            <CheckBox
+                android:id="@+id/checkase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Yes"
+                android:layout_marginRight="30dp"
+                />
+
+        </LinearLayout>
+
+
             <EditText
                 android:id="@+id/ase"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30px"
+                android:layout_marginTop="10px"
                 android:ems="10"
+                android:visibility="gone"
                 android:hint="Any Side Effect"
                 android:inputType="textPersonName"
                 android:minHeight="48dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="127dp"
-            android:layout_marginTop="30px">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:weightSum="1">
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="138dp"
-                android:layout_height="36dp"
-                android:layout_weight="1"
-                android:text="Any side effect after 3th vaccination?" />
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:text="Any positive case and symptoms after 3rd vaccination?" />
 
-            <CheckBox
-                android:id="@+id/checkbox"
-                android:layout_width="193dp"
-                android:layout_height="wrap_content"
-                android:text="Yes" />
+            <RadioGroup
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.30"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes" />
+
+                <RadioButton
+                    android:id="@+id/radioNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No" />
+
+            </RadioGroup>
         </LinearLayout>
 
     </LinearLayout>
