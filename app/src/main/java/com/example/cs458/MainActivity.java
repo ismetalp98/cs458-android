@@ -228,8 +228,11 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, Radi
                 check = 1;
             }
         }
-        if (check == 1)
+        if (check == 1){
+            errorCheck.setText(error);
+            System.out.println(errorCheck.getText());
             return false;
+        }
         else {
             Calendar c = Calendar.getInstance();
             Calendar now = Calendar.getInstance();
@@ -238,6 +241,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, Radi
                 mm.setError("Check boundaries");
                 error += "errorDate";
                 errorCheck.setText(error);
+                System.out.println(errorCheck.getText());
                 dd.setError("Check boundaries");
                 yyyy.setError("Check boundaries");
                 return false;
@@ -246,6 +250,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, Radi
             mm.setError(null);
             yyyy.setError(null);
             errorCheck.setText("noError");
+            System.out.println(errorCheck.getText());
             return true;
         }
     }
