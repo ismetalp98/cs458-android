@@ -184,47 +184,47 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, Radi
 
     public boolean checkFields() {
         int check = 0;
-
+        String error = "";
         if (name.getText().toString().matches(".*[0-9].*")) {
             name.setError("No number");
-            errorCheck.setText("errorName");
+            error += "errorName ";
             check = 1;
         }
         if (!Arrays.asList(cities).contains(city.getText().toString().toLowerCase())) {
             city.setError("City not found");
-            errorCheck.setText("errorCity");
+            error += "errorCity ";
             check = 1;
         }
         if (mm.getText().toString().matches(".*[a-zA-Z].*")) {
             mm.setError("No letter");
-            errorCheck.setText("errorMonth");
+            error += "errorMonth ";
             check = 1;
         } else {
             if (Integer.valueOf(mm.getText().toString()) > 12 || Integer.valueOf(mm.getText().toString()) < 1) {
                 mm.setError("Check boundaries");
-                errorCheck.setText("errorMonth");
+                error += "errorMonth ";
                 check = 1;
             }
         }
         if (dd.getText().toString().matches(".*[a-zA-Z].*")) {
             dd.setError("No letter");
-            errorCheck.setText("errorDay");
+            error += "errorDay ";
             check = 1;
         } else {
             if (!mm.getText().toString().matches(".*[a-zA-Z].*") && Integer.valueOf(dd.getText().toString()) > checkDay(Integer.valueOf(mm.getText().toString())) || Integer.valueOf(dd.getText().toString()) < 1) {
                 dd.setError("Check boundaries");
-                errorCheck.setText("errorDay");
+                error += "errorDay ";
                 check = 1;
             }
         }
         if (yyyy.getText().toString().matches(".*[a-zA-Z].*")) {
             yyyy.setError("No letter");
-            errorCheck.setText("errorYear");
+            error += "errorYear ";
             check = 1;
         } else {
             if (Integer.valueOf(yyyy.getText().toString()) > 2022 || Integer.valueOf(yyyy.getText().toString()) < 1900) {
                 yyyy.setError("Check boundaries");
-                errorCheck.setText("errorYear");
+                error += "errorYear ";
                 check = 1;
             }
         }
@@ -236,7 +236,8 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, Radi
             c.set(Integer.valueOf(yyyy.getText().toString()), Integer.valueOf(mm.getText().toString()) - 1, Integer.valueOf(dd.getText().toString()), 0, 0);
             if (c.after(now)) {
                 mm.setError("Check boundaries");
-                errorCheck.setText("errorDate");
+                error += "errorDate";
+                errorCheck.setText(error);
                 dd.setError("Check boundaries");
                 yyyy.setError("Check boundaries");
                 return false;
