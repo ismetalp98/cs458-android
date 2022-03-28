@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, Radi
     CheckBox checkase;
     Button submit;
     String genderSelected, vaccinationSelected, positiveSelected;
+    TextView errorCheck;
     String cities[] = {"adana", "adıyaman", "afyon", "ağrı", "amasya", "ankara", "antalya", "artvin",
             "aydın", "balıkesir", "bilecik", "bingöl", "bitlis", "bolu", "burdur", "bursa", "çanakkale",
             "çankırı", "çorum", "denizli", "diyarbakır", "edirne", "elazığ", "erzincan", "erzurum", "eskişehir",
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, Radi
         ase = findViewById(R.id.ase);
         groupPositive = findViewById(R.id.groupPositive);
         submit = findViewById(R.id.submit);
+        errorCheck = findViewById(R.id.errorCheck);
 
 
         name.addTextChangedListener(this);
@@ -158,18 +161,24 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, Radi
             return false;
         } else if (otherVaccine.getVisibility() == View.VISIBLE && otherVaccine.getText().toString().isEmpty()) {
             return false;
-        } else if (mm.getText().toString().isEmpty())
+        } else if (mm.getText().toString().isEmpty()){
             return false;
-        else if (dd.getText().toString().isEmpty())
+        }
+        else if (dd.getText().toString().isEmpty()){
             return false;
-        else if (yyyy.getText().toString().isEmpty())
+        }
+        else if (yyyy.getText().toString().isEmpty()){
             return false;
-        else if (groupGender.getCheckedRadioButtonId() == -1)
+        }
+        else if (groupGender.getCheckedRadioButtonId() == -1){
             return false;
-        else if (groupVaccination.getCheckedRadioButtonId() == -1)
+        }
+        else if (groupVaccination.getCheckedRadioButtonId() == -1){
             return false;
-        else if (groupPositive.getCheckedRadioButtonId() == -1)
+        }
+        else if (groupPositive.getCheckedRadioButtonId() == -1){
             return false;
+        }
         return true;
     }
 
@@ -178,36 +187,44 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, Radi
 
         if (name.getText().toString().matches(".*[0-9].*")) {
             name.setError("No number");
+            errorCheck.setText("error");
             check = 1;
         }
         if (!Arrays.asList(cities).contains(city.getText().toString().toLowerCase())) {
             city.setError("City not found");
+            errorCheck.setText("error");
             check = 1;
         }
         if (mm.getText().toString().matches(".*[a-zA-Z].*")) {
             mm.setError("No letter");
+            errorCheck.setText("error");
             check = 1;
         } else {
             if (Integer.valueOf(mm.getText().toString()) > 12 || Integer.valueOf(mm.getText().toString()) < 1) {
                 mm.setError("Check boundaries");
+                errorCheck.setText("error");
                 check = 1;
             }
         }
         if (dd.getText().toString().matches(".*[a-zA-Z].*")) {
             dd.setError("No letter");
+            errorCheck.setText("error");
             check = 1;
         } else {
             if (!mm.getText().toString().matches(".*[a-zA-Z].*") && Integer.valueOf(dd.getText().toString()) > checkDay(Integer.valueOf(mm.getText().toString())) || Integer.valueOf(dd.getText().toString()) < 1) {
                 dd.setError("Check boundaries");
+                errorCheck.setText("error");
                 check = 1;
             }
         }
         if (yyyy.getText().toString().matches(".*[a-zA-Z].*")) {
             yyyy.setError("No letter");
+            errorCheck.setText("error");
             check = 1;
         } else {
             if (Integer.valueOf(yyyy.getText().toString()) > 2022 || Integer.valueOf(yyyy.getText().toString()) < 1900) {
                 yyyy.setError("Check boundaries");
+                errorCheck.setText("error");
                 check = 1;
             }
         }
@@ -219,6 +236,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, Radi
             c.set(Integer.valueOf(yyyy.getText().toString()), Integer.valueOf(mm.getText().toString()) - 1, Integer.valueOf(dd.getText().toString()), 0, 0);
             if (c.after(now)) {
                 mm.setError("Check boundaries");
+                errorCheck.setText("error");
                 dd.setError("Check boundaries");
                 yyyy.setError("Check boundaries");
                 return false;
@@ -226,6 +244,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, Radi
             dd.setError(null);
             mm.setError(null);
             yyyy.setError(null);
+            errorCheck.setText("noError");
             return true;
         }
     }
