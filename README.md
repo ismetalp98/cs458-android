@@ -32,3 +32,5 @@ install Maven into your computer
 install Appium into your computer
 
 install Android Studio into your computer
+
+In all test cases there is a variable called path, you should update and add your own apk path.
