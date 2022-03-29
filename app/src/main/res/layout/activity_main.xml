@@ -86,16 +86,19 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/male"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Male"
                 android:layout_weight="0.33"/>
             <RadioButton
+                android:id="@+id/female"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Female"
                 android:layout_weight="0.33"/>
             <RadioButton
+                android:id="@+id/other_gen"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Other"
@@ -110,16 +113,19 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/turcovac"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Turcovac"
                 android:layout_weight="0.33"/>
             <RadioButton
+                android:id="@+id/biontech"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Biontech"
                 android:layout_weight="0.33"/>
             <RadioButton
+                android:id="@+id/other_vac"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Other"
@@ -191,11 +197,13 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/yes_pos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Yes" />
 
                 <RadioButton
+                    android:id="@+id/no_pos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="No" />
